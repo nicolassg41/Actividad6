@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // API pública para obtener datos
     getRequestButton.addEventListener('click', () => {
-        fetch('https://api.publicapis.org/entries')
+        fetch('https://jsonplaceholder.typicode.com/posts/1')
             .then(response => response.json())
             .then(data => {
-                responseDiv.innerHTML = `<pre>${JSON.stringify(data.entries[0], null, 2)}</pre>`;
+                responseDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
             })
             .catch(error => {
                 responseDiv.innerHTML = `<p>Error: ${error.message}</p>`;
