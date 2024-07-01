@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container mt-5">
         <h1>API Client</h1>
-        <button id="getRequest" class="btn btn-primary">GET Request</button>
-        <button id="postRequest" class="btn btn-secondary">POST Request</button>
-        <button id="putRequest" class="btn btn-success">PUT Request</button>
-        <div id="response"></div>
+        <div class="mb-3">
+            <button id="getRequest" class="btn btn-primary">GET Request</button>
+            <button id="postRequest" class="btn btn-secondary">POST Request</button>
+            <button id="putRequest" class="btn btn-success">PUT Request</button>
+        </div>
+        <div id="response" class="alert alert-info"></div>
     </div>
     <script src="script.js"></script>
 </body>

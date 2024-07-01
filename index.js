@@ -1,21 +1,12 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 
-// Servicios
-app.get('/api/resource', (req, res) => {
-    res.send('GET request to the resource');
-});
-
-app.post('/api/resource', (req, res) => {
-    res.send('POST request to the resource');
-});
-
-app.put('/api/resource', (req, res) => {
-    res.send('PUT request to the resource');
-});
+// Servir los archivos estáticos (HTML, CSS, JS)
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
