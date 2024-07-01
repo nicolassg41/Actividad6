@@ -6,24 +6,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // API pública para obtener datos
     getRequestButton.addEventListener('click', () => {
-        fetch('https://jsonplaceholder.typicode.com/posts/1')
+        fetch('https://api.publicapis.org/entries')
             .then(response => response.json())
             .then(data => {
-                responseDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                responseDiv.innerHTML = `<pre>${JSON.stringify(data.entries[0], null, 2)}</pre>`;
             })
             .catch(error => {
                 responseDiv.innerHTML = `<p>Error: ${error.message}</p>`;
             });
     });
 
-    // API pública para crear datos (esta API no guarda los datos, pero simula la creación)
+    // API pública para crear datos (utilizando reqres.in para simular la creación)
     postRequestButton.addEventListener('click', () => {
-        fetch('https://jsonplaceholder.typicode.com/posts', {
+        fetch('https://reqres.in/api/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ title: 'foo', body: 'bar', userId: 1 })
+            body: JSON.stringify({ name: 'John Doe', job: 'Developer' })
         })
             .then(response => response.json())
             .then(data => {
@@ -34,14 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     });
 
-    // API pública para actualizar datos (esta API no guarda los datos, pero simula la actualización)
+    // API pública para actualizar datos (utilizando reqres.in para simular la actualización)
     putRequestButton.addEventListener('click', () => {
-        fetch('https://jsonplaceholder.typicode.com/posts/1', {
+        fetch('https://reqres.in/api/users/2', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ id: 1, title: 'foo', body: 'bar', userId: 1 })
+            body: JSON.stringify({ name: 'John Doe', job: 'Senior Developer' })
         })
             .then(response => response.json())
             .then(data => {
